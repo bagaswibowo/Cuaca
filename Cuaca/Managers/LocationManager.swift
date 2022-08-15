@@ -11,7 +11,7 @@ import CoreLocation
 class LocationManager:NSObject, ObservableObject, CLLocationManagerDelegate{
     let manager = CLLocationManager()
     
-    @Published var locatio: CLLocationCoordinate2D?
+    @Published var location: CLLocationCoordinate2D?
     @Published var isLoading = false
     
     override init() {
@@ -25,6 +25,11 @@ class LocationManager:NSObject, ObservableObject, CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    location=locations
+        location = locations.first?.coordinate
+        isLoading = false
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error akses lokasi",error)
+        isLoading = false
     }
 }
