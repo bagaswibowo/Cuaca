@@ -24,7 +24,7 @@ struct WelcomeView: View {
             .padding()
             
             LocationButton(.shareCurrentLocation){
-                locationManager.requestLocation()
+                locationManager.requestLocation() 
             }
             .cornerRadius(30)
             .symbolVariant(.fill)
@@ -32,7 +32,7 @@ struct WelcomeView: View {
             
             
         }
-        .frame(maxWidth:.infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         
     }
 }
